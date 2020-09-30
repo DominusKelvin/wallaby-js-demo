@@ -9,7 +9,7 @@ test('App renders correctly', () => {
 it('Vote count starts at 0', () => {
   const { getByTitle } = render(<App />);
   const voteElement = getByTitle('vote count');
-  expect(voteElement).toHaveTextContent(0);
+  expect(voteElement).toHaveTextContent(/^0$/);
 });
 
 it('Vote count increments by 1 when upVote button is pressed', () => {
@@ -17,7 +17,7 @@ it('Vote count increments by 1 when upVote button is pressed', () => {
   const upVoteButtonElement = getByTitle('upVote');
   const voteElement = getByTitle('vote count');
   fireEvent.click(upVoteButtonElement);
-  expect(voteElement).toHaveTextContent(1);
+  expect(voteElement).toHaveTextContent(/^1$/);
 });
 
 it('Vote count decrements by 1 when downVote button is pressed', () => {
@@ -25,7 +25,7 @@ it('Vote count decrements by 1 when downVote button is pressed', () => {
   const downVoteButtonElement = getByTitle('downVote');
   const voteElement = getByTitle('vote count');
   fireEvent.click(downVoteButtonElement);
-  expect(voteElement).toHaveTextContent(-1);
+  expect(voteElement).toHaveTextContent(/^-1$/);
 });
 
 afterEach(cleanup);

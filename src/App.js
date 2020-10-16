@@ -19,7 +19,7 @@ function App() {
         <p className='vote' title='vote count'>
           {vote}
         </p>
-        <section class='votes'>
+        <section className='votes'>
           <button title='upVote' onClick={upVote}>
             <span role='img' aria-label='Up vote'>
               👍🏿
